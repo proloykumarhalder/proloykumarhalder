@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: key-converter
-        image: europe-west3-docker.pkg.dev/test-standalone-project-1/poc-gke-lb/demo-gke-app:latest
+        image: europe-west3-docker.pkg.dev/test-standalone-project-1/poc-gke-lb/demo-gke-app
         ports:
         - containerPort: 8080
 
@@ -28,7 +28,7 @@ spec:
   selector:
     cloud: armor
   ports:
-  - port: 8000 #My wish
+  - port: 8000
     targetPort: 8080
 
 ---
