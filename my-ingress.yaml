@@ -7,14 +7,14 @@ spec:
   - http:
       paths:
       - path: /key
-        pathType: Prefix
+        pathType: ImplementationSpecific
         backend:
           service:
            name: keyconverter-service
            port: 
             number: 8080
       - path: /demo
-        pathType: Prefix
+        pathType: ImplementationSpecific
         backend:
           service:
            name: demo-service
