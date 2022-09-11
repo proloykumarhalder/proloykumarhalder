@@ -47,7 +47,7 @@ spec:
     spec:
       containers:
       - name: demo
-        image: gcr.io/google-samples/whereami:v1.2.6
+        image: europe-west3-docker.pkg.dev/test-standalone-project-1/poc-gke-lb/poc-gke-2
         ports:
         - containerPort: 8080
 
@@ -68,21 +68,27 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: https-ingress
+  name: ingress-demo
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
-  defaultBackend:
-    service:
-      name: demo-service
-      port:
-        number: 9000
   rules:
   - http:
       paths:
-      - path: /armor
-        pathType: ImplementationSpecific
+      - path: /key
+        pathType: Prefix
         backend:
           service:
-            name: keyconverter-service
-            port:
-              number: 8000
+           name: keyconverter-service
+           port: 
+            number: 8000
+      - path: /demo
+        pathType: Prefix
+        backend:
+          service:
+           name: demo-service
+           port:
+            number: 9000
       
