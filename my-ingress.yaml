@@ -7,17 +7,10 @@ spec:
     service:
       name: keyconverter-service
       port:
-        number: 8000
+        number: 8080
   rules:
   - http:
       paths:
-      - path: /key
-        pathType: ImplementationSpecific
-        backend:
-          service:
-           name: keyconverter-service
-           port: 
-            number: 8080
       - path: /demo
         pathType: ImplementationSpecific
         backend:
