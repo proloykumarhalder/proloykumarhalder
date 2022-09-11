@@ -28,7 +28,7 @@ spec:
   selector:
     cloud: armor
   ports:
-  - port: 8000
+  - port: 8080
     targetPort: 8080
 
 ---
@@ -61,7 +61,7 @@ spec:
   selector:
     app: demo
   ports:
-  - port: 9000
+  - port: 8080
     targetPort: 8080
 
 ---
@@ -83,12 +83,12 @@ spec:
           service:
            name: keyconverter-service
            port: 
-            number: 8000
+            number: 8080
       - path: /demo
         pathType: Prefix
         backend:
           service:
            name: demo-service
            port:
-            number: 9000
+            number: 8080
       
