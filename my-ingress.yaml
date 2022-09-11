@@ -29,6 +29,7 @@ spec:
     cloud: armor
   ports:
   - port: 8080
+    protocol: TCP
     targetPort: 8080
 
 ---
@@ -62,6 +63,7 @@ spec:
     app: demo
   ports:
   - port: 8080
+    protocol: TCP
     targetPort: 8080
 
 ---
