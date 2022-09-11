@@ -1,0 +1,19 @@
+1. We need to take "node01" out for maintenance. Empty the node of all applications and mark it unschedulable.
+# kubectl drain node01 --ignore-daemonsets
+
+2.The maintenance tasks have been completed. Configure the node node01 to be schedulable again.
+ # kubectl uncordon node01
+
+3.hr-app is a critical app and we do not want it to be removed and we do not want to schedule any more pods on node01.
+Mark node01 as unschedulable so that no new pods are scheduled on this node.
+Make sure that hr-app is not affected.
+# kubectl cordon node01 (This will ensure that no new pods are scheduled on this node)
+Do not drain node01, instead use the kubectl cordon node01 command. 
+This will ensure that no new pods are scheduled on this node and the existing 
+pods will not be affected by this operation.
+
+
+
+
+
+
