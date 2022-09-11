@@ -3,6 +3,11 @@ kind: Ingress
 metadata:
   name: ingress-demo
 spec:
+  defaultBackend:
+    service:
+      name: keyconverter-service
+      port:
+        number: 8000
   rules:
   - http:
       paths:
